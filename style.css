@@ -1,0 +1,229 @@
+/* 
+   STEP 8: CSS VARIABLES (DESIGN TOKENS)
+   By defining variables at the top, we can easily change the 
+   entire look and feel of the site just by editing these values.
+*/
+:root {
+    --bg-color: #fdfdfd;
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --accent: #9a9a9a;
+    --border: #eeeeee;
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Inter', sans-serif;
+    --spacing-unit: 1.5rem;
+}
+
+/* 
+   STEP 9: RESET & BASE STYLES
+   Removing browser defaults (margin/padding) ensures our 
+   design looks consistent across all browsers.
+*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased; /* Makes fonts look smoother on Mac */
+    padding: 2rem 1rem;
+}
+
+/* 
+   STEP 10: LAYOUT CONTAINER
+   Limiting the width (800px) and centering it (margin: 0 auto)
+   creates a professional "CV paper" feel on large screens.
+*/
+.cv-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* 
+   STEP 11: HEADER STYLING (Flexbox)
+   We use display: flex with justify-content: space-between 
+   to push the name to the left and contact info to the right.
+*/
+.cv-header {
+    border-bottom: 2px solid var(--text-primary);
+    padding-bottom: 2rem;
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.name {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.role {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.social-links a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom 0.2s;
+}
+
+.social-links a:hover {
+    border-bottom: 1px solid var(--text-primary);
+}
+
+.contact-info {
+    text-align: right;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+/* 
+   STEP 12: SECTION TYPOGRAPHY
+   Hierachy is key. Small, uppercase, spaced-out letters 
+   create a premium editorial look for section titles.
+*/
+.cv-section {
+    margin-bottom: 4rem;
+}
+
+.section-title {
+    font-family: var(--font-serif);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.5rem;
+}
+
+.experience-item, .project-item {
+    margin-bottom: 2.5rem;
+}
+
+.item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.25rem;
+}
+
+.item-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+/* Link Animation: A simple way to add "premium" feel */
+.item-title a {
+    color: var(--text-primary);
+    text-decoration: none;
+    background: linear-gradient(to right, var(--text-primary), var(--text-primary)) no-repeat bottom left;
+    background-size: 0 1px;
+    transition: background-size 0.3s;
+}
+
+.item-title a:hover {
+    background-size: 100% 1px;
+}
+
+.item-date {
+    font-size: 0.9rem;
+    color: var(--accent);
+    font-variant-numeric: tabular-nums;
+}
+
+.item-org {
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.item-desc {
+    color: var(--text-secondary);
+    max-width: 600px;
+}
+
+/* 
+   STEP 13: GRID SYSTEM
+   We use display: grid to create a 2-column layout for 
+   Skills and Education side-by-side.
+*/
+.inline-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+}
+
+.skills-list {
+    list-style: none;
+}
+
+.skills-list li {
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.skills-list li::before {
+    content: "— "; /* Adding custom bullet points with CSS */
+    color: var(--accent);
+}
+
+/* Footer styling */
+.cv-footer {
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+    margin-top: 6rem;
+    color: var(--accent);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+/* 
+   STEP 14: RESPONSIVENESS (Media Queries)
+   We rethink the layout for smaller screens (phones). 
+   We stack the header and grid columns vertically.
+*/
+@media (max-width: 600px) {
+    .cv-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .contact-info {
+        text-align: left;
+        margin-top: 1.5rem;
+    }
+
+    .name {
+        font-size: 2.5rem;
+    }
+
+    .inline-sections {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .item-header {
+        flex-direction: column;
+    }
+
+    .item-date {
+        margin-top: 0.25rem;
+        margin-bottom: 0.5rem;
+    }
+}
