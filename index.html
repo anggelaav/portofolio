@@ -1,118 +1,141 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio | CV Style</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <!-- 
         STEP 1: THE CONTAINER
         We wrap everything in a 'cv-container' to control the maximum width
         and center the content on the screen.
     -->
     <div class="cv-container">
-        
-        <!-- 
+      <!-- 
             STEP 2: THE HEADER (Identity & Contact)
             Use a <header> tag for the top section. 
             This usually contains your name, role, and ways to reach you.
         -->
-        <header class="cv-header">
-            <div class="header-content">
-                <h1 class="name">Thoriq Nur Faizal</h1>
-                <div class="header-top">
-                    <p class="role">Software Engineer & RevoU Graduate</p>
-                </div>
-                <div class="social-links">
-                    <a href="https://linkedin.com/in/thoriqnf">LinkedIn</a> / <a href="https://github.com/thoriqnf">GitHub</a> / <a href="#">Portfolio</a>
-                </div>
-            </div>
-            <div class="contact-info">
-                <p>thoriq@revou.ac.id</p>
-                <p>Jakarta, Indonesia</p>
-            </div>
-        </header>
+      <header class="cv-header">
+        <div class="header-content">
+          <h1 class="name">Thoriq N F</h1>
+          <div class="header-top">
+            <p class="role">Software Engineer & RevoU Graduate</p>
+          </div>
+          <div class="social-links">
+            <a href="https://linkedin.com/in/thoriqnf">LinkedIn</a> /
+            <a href="https://github.com/thoriqnf">GitHub</a> /
+            <a href="#">Portfolio</a>
+          </div>
+        </div>
+        <div class="contact-info">
+          <p>thoriq@revou.ac.id</p>
+          <p>Jakarta, Indonesia</p>
+        </div>
+      </header>
 
-        <!-- 
+      <!-- 
             STEP 3: THE MAIN CONTENT
             Use the <main> tag for the unique content of this page.
             Each major part of your CV should be inside a <section>.
         -->
-        <main class="cv-main">
-            
-            <!-- STEP 4: EXPERIENCE SECTION (Detailed content) -->
-            <section class="cv-section">
-                <h2 class="section-title">Experience</h2>
-                <div class="experience-item">
-                    <div class="item-header">
-                        <h3 class="item-title">Software Engineer Intern</h3>
-                        <span class="item-date">Jan 2026 — Present</span>
-                    </div>
-                    <p class="item-org">RevoU International</p>
-                    <p class="item-desc">Building scalable web applications and collaborating with senior engineers to implement modern UI components using a foundation-first approach.</p>
-                </div>
-                <div class="experience-item">
-                    <div class="item-header">
-                        <h3 class="item-title">Full Stack Development Student</h3>
-                        <span class="item-date">2025 — 2026</span>
-                    </div>
-                    <p class="item-org">RevoU University</p>
-                    <p class="item-desc">Completed intensive training in modern web technologies, focusing on semantic HTML, clean CSS, and responsive design principles.</p>
-                </div>
-            </section>
+      <main class="cv-main">
+        <!-- STEP 4: EXPERIENCE SECTION (Detailed content) -->
+        <section class="cv-section">
+          <h2 class="section-title">Experience</h2>
+          <div class="experience-item">
+            <div class="item-header">
+              <h3 class="item-title">Software Engineer Intern</h3>
+              <span class="item-date">Jan 2026 — Present</span>
+            </div>
+            <p class="item-org">RevoU International</p>
+            <p class="item-desc">
+              Building scalable web applications and collaborating with senior
+              engineers to implement modern UI components using a
+              foundation-first approach.
+            </p>
+          </div>
+          <div class="experience-item">
+            <div class="item-header">
+              <h3 class="item-title">Full Stack Development Student</h3>
+              <span class="item-date">2025 — 2026</span>
+            </div>
+            <p class="item-org">RevoU University</p>
+            <p class="item-desc">
+              Completed intensive training in modern web technologies, focusing
+              on semantic HTML, clean CSS, and responsive design principles.
+            </p>
+          </div>
+        </section>
 
-            <!-- STEP 5: PROJECTS SECTION (Proof of skills) -->
-            <section class="cv-section">
-                <h2 class="section-title">Selected Projects</h2>
-                <div class="project-list">
-                    <div class="project-item">
-                        <h3 class="item-title"><a href="https://github.com/thoriqnf/revou-masterclass-first-porto">MasterClass Portfolio Demo</a></h3>
-                        <p class="item-desc">A premium, CV-style portfolio template designed for RevoU's First Portfolio Webinar. Focuses on typography and clean code.</p>
-                    </div>
-                    <div class="project-item">
-                        <h3 class="item-title"><a href="#">Eco-Track Dashboard</a></h3>
-                        <p class="item-desc">A real-time environmental monitoring tool built during the RevoU Full Stack capstone project.</p>
-                    </div>
-                </div>
-            </section>
+        <!-- STEP 5: PROJECTS SECTION (Proof of skills) -->
+        <section class="cv-section">
+          <h2 class="section-title">Selected Projects</h2>
+          <div class="project-list">
+            <div class="project-item">
+              <h3 class="item-title">
+                <a
+                  href="https://github.com/thoriqnf/revou-masterclass-first-porto"
+                  >MasterClass Portfolio Demo</a
+                >
+              </h3>
+              <p class="item-desc">
+                A premium, CV-style portfolio template designed for RevoU's
+                First Portfolio Webinar. Focuses on typography and clean code.
+              </p>
+            </div>
+            <div class="project-item">
+              <h3 class="item-title"><a href="#">Eco-Track Dashboard</a></h3>
+              <p class="item-desc">
+                A real-time environmental monitoring tool built during the RevoU
+                Full Stack capstone project.
+              </p>
+            </div>
+          </div>
+        </section>
 
-            <!-- 
+        <!-- 
                 STEP 6: COLUMN LAYOUT (Expertise & Education)
                 We use an 'inline-sections' class here which will be 
                 transformed into a 2-column grid in CSS later.
             -->
-            <section class="cv-section inline-sections">
-                <div class="sub-section">
-                    <h2 class="section-title">Skills</h2>
-                    <ul class="skills-list">
-                        <li>Semantic HTML5</li>
-                        <li>Modern CSS & Flexbox</li>
-                        <li>Responsive Web Design</li>
-                        <li>Git & Version Control</li>
-                    </ul>
-                </div>
-                <div class="sub-section">
-                    <h2 class="section-title">Education</h2>
-                    <div class="education-item">
-                        <h3 class="item-title">B.S. in Computer Science</h3>
-                        <p class="item-org">RevoU University, 2026</p>
-                    </div>
-                </div>
-            </section>
-        </main>
+        <section class="cv-section inline-sections">
+          <div class="sub-section">
+            <h2 class="section-title">Skills</h2>
+            <ul class="skills-list">
+              <li>Semantic HTML5</li>
+              <li>Modern CSS & Flexbox</li>
+              <li>Responsive Web Design</li>
+              <li>Git & Version Control</li>
+            </ul>
+          </div>
+          <div class="sub-section">
+            <h2 class="section-title">Education</h2>
+            <div class="education-item">
+              <h3 class="item-title">B.S. in Computer Science</h3>
+              <p class="item-org">RevoU University, 2026</p>
+            </div>
+          </div>
+        </section>
+      </main>
 
-        <!-- 
+      <!-- 
             STEP 7: THE FOOTER
             A simple <footer> to close the page with a copyright notice.
         -->
-        <footer class="cv-footer">
-            <p>&copy; 2026 Thoriq Nur Faizal. Personal Portfolio for RevoU Webinar.</p>
-        </footer>
+      <footer class="cv-footer">
+        <p>
+          &copy; 2026 Thoriq Nur Faizal. Personal Portfolio for RevoU Webinar.
+        </p>
+      </footer>
     </div>
 
     <!-- 
@@ -120,7 +143,9 @@
         We move the button here so it can stay "fixed" to the 
         bottom right corner of the screen.
     -->
-    <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">Theme</button>
+    <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">
+      Theme
+    </button>
 
     <!-- 
         STEP 17: ADDING THE SCRIPT
@@ -128,5 +153,5 @@
         after the HTML is ready.
     -->
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
