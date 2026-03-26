@@ -1,158 +1,141 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio | CV Style</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,700;1,700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <!-- 
-        STEP 1: THE CONTAINER
-        We wrap everything in a 'cv-container' to control the maximum width
-        and center the content on the screen.
-    -->
-    <div class="cv-container">
-      <!-- 
-            STEP 2: THE HEADER (Identity & Contact)
-            Use a <header> tag for the top section. 
-            This usually contains your name, role, and ways to reach you.
-        -->
-      <header class="cv-header">
-        <div class="header-content">
-          <h1 class="name">Anggela Dwi Vanesa</h1>
-          <div class="header-top">
-            <p class="role">Software Engineer Intern</p>
-          </div>
-          <div class="social-links">
-            <a href="https://www.linkedin.com/in/anggeladwiv/">LinkedIn</a> /
-            <a href="https://github.com/anggelaav">GitHub</a> /
-            <a href="#">Portfolio</a>
-          </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Anggela Dwi Vanesa | Modern Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="cv-container">
+  <header class="cv-header">
+    <div class="header-left">
+      <img src="img/profile.jpg" alt="Anggela Profile" class="profile-img">
+      <div class="header-content">
+        <h1 class="name">Anggela Dwi Vanesa</h1>
+        <div class="header-top">
+          <span class="role"><i class="fas fa-code"></i> Software Engineer Intern</span>
         </div>
-        <div class="contact-info">
-          <p>anggeladwivanesa@gmail.com</p>
-          <p>Surabaya, Indonesia</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/anggeladwiv/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+          <a href="https://github.com/anggelaav" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+          <a href="https://anggelaav.github.io/portofolio/" target="_blank"><i class="fas fa-briefcase"></i> Portfolio</a>
         </div>
-      </header>
-
-      <!-- 
-            STEP 3: THE MAIN CONTENT
-            Use the <main> tag for the unique content of this page.
-            Each major part of your CV should be inside a <section>.
-        -->
-      <main class="cv-main">
-        <!-- STEP 4: EXPERIENCE SECTION (Detailed content) -->
-        <section class="cv-section">
-          <h2 class="section-title">Experience</h2>
-          <div class="experience-item">
-            <div class="item-header">
-              <h3 class="item-title">Software Engineer Intern</h3>
-              <span class="item-date">Mar 2026 — Present</span>
-            </div>
-            <p class="item-org">PT Radnet Digital Indonesia</p>
-            <p class="item-desc">
-              Gaining professional experience by supporting daily technical activities and collaborating with the team to assist in various IT-related tasks and projects.
-            </p>
-          </div>
-          <div class="experience-item">
-            <div class="item-header">
-              <h3 class="item-title">Full Stack Web Development Student</h3>
-              <span class="item-date">Aug 2025 — Jan 2026</span>
-            </div>
-            <p class="item-org">Asah Ied by Dicoding Indonesia</p>
-            <p class="item-desc">
-              Participated in the Asah Ied Independent Study program focusing on Full-Stack Web Development with AI, 
-              building responsive web interfaces, developing RESTful APIs with Node.js, and completing a team-based 
-              full-stack web application project.
-            </p>
-          </div>
-        </section>
-
-        <!-- STEP 5: PROJECTS SECTION (Proof of skills) -->
-        <section class="cv-section">
-          <h2 class="section-title">Selected Projects</h2>
-          <div class="project-list">
-            <div class="project-item">
-              <h3 class="item-title">
-                <a
-                  href="https://github.com/anggelaav/Bookshelf-app"
-                  >Bookshelf App</a
-                >
-              </h3>
-              <p class="item-desc">
-                Developed a web-based digital bookshelf application with complete CRUD features, 
-                book search functionality, and two separate shelves for "Currently Reading" and "Finished Reading" books. 
-                Built with Object-Oriented Programming (OOP) approach and utilizes Local Storage to permanently store data in the browser.
-              </p>
-            </div>
-            <div class="project-item">
-              <h3 class="item-title">
-                <a href="https://github.com/anggelaav/Travelog-App">TravelLog App</a></h3>
-              <p class="item-desc">
-                Built a Progressive Web App (PWA) platform for sharing travel stories with interactive maps, equipped with offline sync features, 
-                push notifications, and bookmark system. Developed with modular architecture using JavaScript.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <!-- 
-                STEP 6: COLUMN LAYOUT (Expertise & Education)
-                We use an 'inline-sections' class here which will be 
-                transformed into a 2-column grid in CSS later.
-            -->
-        <section class="cv-section inline-sections">
-          <div class="sub-section">
-            <h2 class="section-title">Skills</h2>
-            <ul class="skills-list">
-              <li>Semantic HTML</li>
-              <li>Modern CSS & Flexbox</li>
-              <li>Design with Figma & Canva</li>
-              <li>Microsoft Office</li>
-            </ul>
-          </div>
-          <div class="sub-section">
-            <h2 class="section-title">Education</h2>
-            <div class="education-item">
-              <h3 class="item-title">Teknik Informatika</h3>
-              <p class="item-org">Universitas Negeri Surabaya, 2023 - Present</p>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <!-- 
-            STEP 7: THE FOOTER
-            A simple <footer> to close the page with a copyright notice.
-        -->
-      <footer class="cv-footer">
-        <p>
-          &copy; 2026 Anggela Dwi Vanesa.
-        </p>
-      </footer>
+      </div>
     </div>
+    <div class="contact-info">
+      <p><i class="fas fa-envelope"></i> anggeladwivanesa@gmail.com</p>
+      <p><i class="fas fa-map-marker-alt"></i> Surabaya, Indonesia</p>
+    </div>
+  </header>
 
-    <!-- 
-        STEP 15: THE TOGGLE BUTTON (Floating)
-        We move the button here so it can stay "fixed" to the 
-        bottom right corner of the screen.
-    -->
-    <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">
-      Theme
-    </button>
+  <main class="cv-main">
+    <section class="cv-section">
+      <h2 class="section-title"><i class="fas fa-briefcase"></i> Experience</h2>
+      <div class="experience-item">
+        <div class="item-header">
+          <h3 class="item-title">Software Engineer Intern</h3>
+          <span class="item-date"><i class="far fa-calendar-alt"></i> Mar 2026 — Present</span>
+        </div>
+        <p class="item-org"><i class="fas fa-building"></i> PT Radnet Digital Indonesia</p>
+        <p class="item-desc">
+          Gaining professional experience by supporting daily technical activities and collaborating 
+          with the team to assist in various IT-related tasks and projects.
+        </p>
+      </div>
+      <div class="experience-item">
+        <div class="item-header">
+          <h3 class="item-title">Full Stack Web Development Student</h3>
+          <span class="item-date"><i class="far fa-calendar-alt"></i> Aug 2025 — Jan 2026</span>
+        </div>
+        <p class="item-org"><i class="fas fa-graduation-cap"></i> Asah Ied by Dicoding Indonesia</p>
+        <p class="item-desc">
+          Participated in the Asah Ied Independent Study program focusing on Full-Stack Web Development with AI, 
+          building responsive web interfaces, developing RESTful APIs with Node.js, and completing a team-based full-stack web application project.
+        </p>
+      </div>
+    </section>
 
-    <!-- 
-        STEP 17: ADDING THE SCRIPT
-        We link our JavaScript file at the bottom so it loads 
-        after the HTML is ready.
-    -->
-    <script src="script.js"></script>
-  </body>
+    <section class="cv-section">
+      <h2 class="section-title"><i class="fas fa-laptop-code"></i> Selected Projects</h2>
+      <div class="project-item">
+        <div class="item-header">
+          <h3 class="item-title">
+            <a href="https://github.com/anggelaav/Bookshelf-app" target="_blank">
+              <i class="fab fa-github"></i> Bookshelf App
+            </a>
+          </h3>
+          <span class="item-date"><i class="fas fa-database"></i> OOP • Local Storage • CRUD</span>
+        </div>
+        <p class="item-desc">
+          Developed a web-based digital bookshelf application with complete CRUD features, book search functionality, 
+          and two separate shelves for "Currently Reading" and "Finished Reading" books. Built with Object-Oriented Programming (OOP) 
+          approach and utilizes Local Storage to permanently store data in the browser.
+
+
+        </p>
+        <div class="tech-tags">
+          <span>HTML</span>
+          <span>CSS</span>
+          <span>JavaScript (OOP)</span>
+          <span>Local Storage</span>
+        </div>
+      </div>
+      <div class="project-item">
+        <div class="item-header">
+          <h3 class="item-title">
+            <a href="https://github.com/anggelaav/Travelog-App" target="_blank">
+              <i class="fab fa-github"></i> TravelLog App (PWA)
+            </a>
+          </h3>
+          <span class="item-date"><i class="fas fa-map-marked-alt"></i> PWA • Offline Sync • Maps</span>
+        </div>
+        <p class="item-desc">
+          Built a Progressive Web App (PWA) platform for sharing travel stories with interactive maps, 
+          equipped with offline sync features, push notifications, and bookmark system. Developed with modular architecture using JavaScript.
+        </p>
+        <div class="tech-tags">
+          <span>PWA</span>
+          <span>IndexedDB</span>
+          <span>Leaflet Maps</span>
+          <span>Service Workers</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="cv-section inline-sections">
+      <div class="sub-section">
+        <h2 class="section-title"><i class="fas fa-cog"></i> Skills</h2>
+        <ul class="skills-list">
+          <li>Semantic HTML</li>
+          <li>Modern CSS & Flexbox</li>
+          <li>Design with Figma & Canva</li>
+          <li>Microsoft Office</li>
+        </ul>
+      </div>
+      <div class="sub-section">
+        <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h2>
+        <div class="education-item">
+          <h3 class="item-title">Teknik Informatika</h3>
+          <p class="item-org"><i class="fas fa-university"></i> Universitas Negeri Surabaya | 2023 – Present</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="cv-footer">
+    <p><i class="far fa-copyright"></i> <span id="year"></span> Anggela Dwi Vanesa</p>
+    <p><i class="fas fa-code"></i> Learning, building, and improving continuously</p>
+  </footer>
+</div>
+
+<button id="theme-toggle" class="theme-btn" aria-label="Dark/Light Mode">
+  <i class="fas fa-moon"></i> <span id="theme-text">Dark Mode</span>
+</button>
+
+<script src="script.js"></script>
+</body>
 </html>

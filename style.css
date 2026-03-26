@@ -1,281 +1,504 @@
-/* 
-   STEP 8: CSS VARIABLES (DESIGN TOKENS)
-   By defining variables at the top, we can easily change the 
-   entire look and feel of the site just by editing these values.
-*/
 :root {
-    --bg-color: #fdfdfd;
-    --text-primary: #1a1a1a;
-    --text-secondary: #4a4a4a;
-    --accent: #9a9a9a;
-    --border: #eeeeee;
-    --font-serif: 'Playfair Display', serif;
-    --font-sans: 'Inter', sans-serif;
-    --spacing-unit: 1.5rem;
+  --bg-primary: #ffffff;
+  --bg-primary-rgb: 255, 255, 255;
+  --bg-secondary: #f8fafc;
+  --surface: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --accent-primary: #3b82f6;
+  --accent-gradient: linear-gradient(135deg, #2563eb, #7c3aed);
+  --accent-soft: #eef2ff;
+  --border-light: #e2e8f0;
+  --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+  --hover-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+  --transition-smooth: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  --radius-card: 1.25rem;
+  --radius-element: 0.75rem;
 }
 
-/* 
-   STEP 16: DARK MODE OVERRIDES
-   When the 'dark-mode' class is added to the body, 
-   we swap the values of our variables.
-*/
 body.dark-mode {
-    --bg-color: #1a1a1a;
-    --text-primary: #fdfdfd;
-    --text-secondary: #aaaaaa;
-    --border: #333333;
+  --bg-primary: #0b1120;
+  --bg-primary-rgb: 11, 17, 32;
+  --bg-secondary: #0f172a;
+  --surface: #111827;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --accent-primary: #60a5fa;
+  --accent-gradient: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  --accent-soft: #1e293b;
+  --border-light: #1e293b;
+  --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
 }
 
-/* 
-   STEP 9: RESET & BASE STYLES
-   Removing browser defaults (margin/padding) ensures our 
-   design looks consistent across all browsers.
-*/
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background-color: var(--bg-color);
-    color: var(--text-primary);
-    font-family: var(--font-sans);
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased; /* Makes fonts look smoother on Mac */
-    padding: 2rem 1rem;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.5;
+  transition: background-color 0.3s ease, color 0.2s ease;
+  scroll-behavior: smooth;
 }
 
-/* 
-   STEP 10: LAYOUT CONTAINER
-   Limiting the width (800px) and centering it (margin: 0 auto)
-   creates a professional "CV paper" feel on large screens.
-*/
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 30%, rgba(59,130,246,0.03) 0%, rgba(124,58,237,0.02) 100%);
+  pointer-events: none;
+  z-index: -1;
+}
+
 .cv-container {
-    max-width: 800px;
-    margin: 0 auto;
+  max-width: 980px;
+  margin: 2rem auto;
+  padding: 0 2rem;
 }
 
-/* 
-   STEP 11: HEADER STYLING (Flexbox)
-   We use display: flex with justify-content: space-between 
-   to push the name to the left and contact info to the right.
-*/
 .cv-header {
-    border-bottom: 2px solid var(--text-primary);
-    padding-bottom: 2rem;
-    margin-bottom: 4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 3.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid var(--border-light);
+  position: relative;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+  flex-wrap: wrap;
+}
+
+.profile-img {
+  width: 112px;
+  height: 112px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent-primary);
+  box-shadow: 0 12px 24px -8px rgba(59,130,246,0.25);
+  transition: var(--transition-smooth);
+  background: var(--accent-soft);
+}
+
+.profile-img:hover {
+  transform: scale(1.02);
+  border-color: #8b5cf6;
+  box-shadow: 0 20px 30px -12px rgba(59,130,246,0.4);
+}
+
+.header-content {
+  flex: 1;
 }
 
 .name {
-    font-family: var(--font-serif);
-    font-size: 3.5rem;
-    font-weight: 700;
-    line-height: 1;
-    margin-bottom: 0.5rem;
-}
-
-.header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
+  font-family: 'Space Grotesk', monospace;
+  font-size: 2.8rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: var(--accent-gradient);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+  margin-bottom: 0.5rem;
 }
 
 .role {
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--accent-primary);
+  background: var(--accent-soft);
+  display: inline-block;
+  padding: 0.2rem 0.9rem;
+  border-radius: 40px;
+  backdrop-filter: blur(4px);
+  letter-spacing: 0.3px;
 }
 
-/* 
-   STEP 15.1: FLOATING BUTTON STYLING
-   We use position: fixed to keep the button in the same spot
-   even when we scroll.
-*/
-.theme-btn {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    background: var(--text-primary); /* Swaps with theme */
-    border: 1px solid var(--border);
-    color: var(--bg-color); /* Swaps with theme */
-    padding: 0.6rem 1.2rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    border-radius: 2rem; /* Rounded pull feel */
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 100;
-}
-
-.theme-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
-}
-
-.theme-btn:active {
-    transform: translateY(0);
+.social-links {
+  margin-top: 0.75rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .social-links a {
-    color: var(--text-primary);
-    text-decoration: none;
-    font-weight: 500;
-    border-bottom: 1px solid transparent;
-    transition: border-bottom 0.2s;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: var(--transition-smooth);
+  padding: 0.25rem 0;
+  border-bottom: 1px solid transparent;
+}
+
+.social-links a i {
+  font-size: 0.9rem;
+  color: var(--accent-primary);
+  transition: 0.3s;
 }
 
 .social-links a:hover {
-    border-bottom: 1px solid var(--text-primary);
+  color: var(--accent-primary);
+  border-bottom-color: var(--accent-primary);
+  transform: translateY(-2px) scale(1.1);
 }
 
 .contact-info {
-    text-align: right;
-    font-size: 0.95rem;
-    color: var(--text-secondary);
+  text-align: right;
+  background: var(--bg-secondary);
+  padding: 0.8rem 1.4rem;
+  border-radius: var(--radius-element);
+  backdrop-filter: blur(2px);
+  border: 1px solid var(--border-light);
 }
 
-/* 
-   STEP 12: SECTION TYPOGRAPHY
-   Hierachy is key. Small, uppercase, spaced-out letters 
-   create a premium editorial look for section titles.
-*/
+.contact-info p {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  justify-content: flex-end;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0.3rem 0;
+}
+
+.contact-info i {
+  width: 1.2rem;
+  color: var(--accent-primary);
+}
+
 .cv-section {
-    margin-bottom: 4rem;
+  margin-bottom: 3.8rem;
 }
 
 .section-title {
-    font-family: var(--font-serif);
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--accent);
-    margin-bottom: 2rem;
-    border-bottom: 1px solid var(--border);
-    padding-bottom: 0.5rem;
+  font-family: 'Space Grotesk', monospace;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-primary);
+  margin-bottom: 1.5rem;
+  display: inline-block;
+  background: var(--accent-soft);
+  padding: 0.2rem 1rem;
+  border-radius: 30px;
 }
 
 .experience-item, .project-item {
-    margin-bottom: 2.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-card);
+  padding: 1.5rem;
+  margin-bottom: 1.6rem;
+  transition: var(--transition-smooth);
+  box-shadow: var(--card-shadow);
+}
+
+.experience-item:hover, .project-item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--hover-shadow);
+  border-color: var(--accent-primary);
 }
 
 .item-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 0.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .item-title {
-    font-size: 1.25rem;
-    font-weight: 600;
+  font-size: 1.35rem;
+  font-weight: 700;
+  font-family: 'Space Grotesk', monospace;
+  color: var(--text-primary);
 }
 
-/* Link Animation: A simple way to add "premium" feel */
 .item-title a {
-    color: var(--text-primary);
-    text-decoration: none;
-    background: linear-gradient(to right, var(--text-primary), var(--text-primary)) no-repeat bottom left;
-    background-size: 0 1px;
-    transition: background-size 0.3s;
+  color: inherit;
+  text-decoration: none;
+  transition: var(--transition-smooth);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.item-title a i {
+  font-size: 1rem;
+  opacity: 0.7;
 }
 
 .item-title a:hover {
-    background-size: 100% 1px;
+  color: var(--accent-primary);
 }
 
 .item-date {
-    font-size: 0.9rem;
-    color: var(--accent);
-    font-variant-numeric: tabular-nums;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background: var(--accent-soft);
+  padding: 0.2rem 0.7rem;
+  border-radius: 40px;
+  color: var(--accent-primary);
 }
 
 .item-org {
-    color: var(--text-secondary);
-    font-weight: 500;
-    margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin: 0.3rem 0 0.7rem 0;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
 
 .item-desc {
-    color: var(--text-secondary);
-    max-width: 600px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
-/* 
-   STEP 13: GRID SYSTEM
-   We use display: grid to create a 2-column layout for 
-   Skills and Education side-by-side.
-*/
+.tech-tags {
+  margin-top: 0.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-tags span {
+  background: var(--accent-soft);
+  padding: 0.2rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
 .inline-sections {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.sub-section {
+  background: var(--surface);
+  border-radius: var(--radius-card);
+  padding: 1.5rem 1.8rem;
+  border: 1px solid var(--border-light);
+  transition: var(--transition-smooth);
+  box-shadow: var(--card-shadow);
+}
+
+.sub-section:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent-primary);
 }
 
 .skills-list {
-    list-style: none;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 0.8rem;
 }
 
 .skills-list li {
-    margin-bottom: 0.5rem;
-    color: var(--text-secondary);
+  background: var(--accent-soft);
+  padding: 0.4rem 1rem;
+  border-radius: 40px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: 0.2s;
+  backdrop-filter: blur(2px);
 }
 
 .skills-list li::before {
-    content: "— "; /* Adding custom bullet points with CSS */
-    color: var(--accent);
+  content: "▹";
+  margin-right: 6px;
+  color: var(--accent-primary);
+  font-size: 0.75rem;
 }
 
-/* Footer styling */
+.education-item .item-title {
+  font-size: 1.2rem;
+  margin-bottom: 0.25rem;
+}
+
+.achievements-interests {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.info-card {
+  background: var(--surface);
+  border-radius: var(--radius-card);
+  padding: 1.2rem 1.5rem;
+  border: 1px solid var(--border-light);
+  flex: 1;
+  transition: var(--transition-smooth);
+}
+
+.info-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-primary);
+}
+
+.info-card h3 {
+  font-family: 'Space Grotesk', monospace;
+  font-size: 1rem;
+  margin-bottom: 0.6rem;
+  color: var(--accent-primary);
+}
+
+.info-card p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
 .cv-footer {
-    border-top: 1px solid var(--border);
-    padding-top: 2rem;
-    margin-top: 6rem;
-    color: var(--accent);
-    font-size: 0.85rem;
-    text-align: center;
+  border-top: 1px solid var(--border-light);
+  padding-top: 2rem;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
 }
 
-/* 
-   STEP 14: RESPONSIVENESS (Media Queries)
-   We rethink the layout for smaller screens (phones). 
-   We stack the header and grid columns vertically.
-*/
-@media (max-width: 600px) {
-    .cv-header {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .contact-info {
-        text-align: left;
-        margin-top: 1.5rem;
-    }
+.theme-btn {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  background: var(--surface);
+  border: 1px solid var(--border-light);
+  color: var(--text-primary);
+  padding: 0.8rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.85rem;
+  border-radius: 60px;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  background-color: rgba(var(--bg-primary-rgb, 255, 255, 255), 0.8);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
 
-    .name {
-        font-size: 2.5rem;
-    }
+body.dark-mode .theme-btn {
+  background: #1e293bcc;
+  backdrop-filter: blur(12px);
+}
 
-    .inline-sections {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
+.theme-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.2);
+  border-color: var(--accent-primary);
+}
 
-    .item-header {
-        flex-direction: column;
-    }
+.theme-btn i {
+  font-size: 1rem;
+}
 
-    .item-date {
-        margin-top: 0.25rem;
-        margin-bottom: 0.5rem;
-    }
+@media (max-width: 780px) {
+  .cv-container {
+    padding: 0 1.2rem;
+  }
+  .cv-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .contact-info {
+    text-align: left;
+    width: 100%;
+  }
+  .contact-info p {
+    justify-content: flex-start;
+  }
+  .name {
+    font-size: 2.2rem;
+  }
+  .inline-sections {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .item-header {
+    flex-direction: column;
+  }
+  .item-date {
+    align-self: flex-start;
+  }
+  .profile-img {
+    width: 88px;
+    height: 88px;
+  }
+  .achievements-interests {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-left {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cv-footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+.project-item .item-title a {
+  position: relative;
+}
+
+.project-item .item-title a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent-primary);
+  transition: width 0.2s ease;
+}
+
+.project-item .item-title a:hover::after {
+  width: 100%;
 }
